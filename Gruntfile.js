@@ -18,11 +18,11 @@ module.exports = function(grunt) {
     watch: {
       html: {
         files: ['*.html'],
-
+        tasks: ['htmlbuild']
       },
       less: {
         files: ['less/*.less'],
-        tasks: ['less']
+        tasks: ['less', 'htmlbuild']
       }
     },
     less: {
@@ -38,7 +38,21 @@ module.exports = function(grunt) {
         dest: 'dist/',
         options: {
           beautify: true,
-          relative: true
+          relative: true,
+          scripts: {
+            bundle: ['js/*.js', '!js/jquery.js'],
+            jquery: ['js/jquery.js']
+          },
+          styles: {
+            bundle: 'css/index.css'
+          },
+          sections: {
+            layout: {
+              header: 'partials/header.html',
+              footer: 'partials/footer.html'
+            },
+            head: 'partials/head.html'
+          }
         }
       }
     }
