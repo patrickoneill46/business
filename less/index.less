@@ -1,3 +1,4 @@
+@import "variables.less";
 @import "bootstrap/bootstrap.less";
 @import "font-awesome.less";
 @import "prettyPhoto.less";
@@ -123,6 +124,10 @@ body > section {
   padding: 70px 0;
 }
 
+section h2 {
+  color: @red;
+}
+
 .center {
   text-align: center;
   padding-bottom: 55px;
@@ -181,6 +186,8 @@ body > section {
 
 #header .search{
   display: inline-block;
+  background-color: #fff;
+  color: @red;
 }
 
 .navbar>.container .navbar-brand{
@@ -189,7 +196,7 @@ body > section {
 
 .top-bar {
   padding: 10px 0;
-  background: #191919;
+  background: @blue;
   border-bottom: 1px solid #222;
   line-height: 28px;
 }
@@ -234,7 +241,8 @@ ul.social-share li a:hover {
 }
 
 .search i {
-  color: #fff;
+  color: @red;
+  padding-right: 5px;
 }
 
 input.search-form{
@@ -242,7 +250,7 @@ input.search-form{
   border: 0 none;
   width: 60px;
   padding: 0 10px;
-  color: #FFF;
+  color: @red;
   -webkit-transition: all 400ms;
   -moz-transition: all 400ms;
   -ms-transition: all 400ms;
@@ -270,7 +278,7 @@ input.search-form:hover {
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
-  background: #151515;
+  background: @blue;
   padding: 15px 0;
   padding-bottom: 0;
 }
@@ -657,7 +665,7 @@ input.search-form:hover {
 }
 
 #services {
-  background: #000 url(../images/services/bg_services.png);
+  background: @blue url(../images/services/bg_services.png);
   background-size: cover;
 }
 
@@ -824,12 +832,15 @@ input.search-form:hover {
   margin-top: 0;
 }
 
-.panel-heading.active{
-  background: #1f1f20;
+.panel-heading.active,.panel-heading:hover{
+  background: @blue;
+  cursor: pointer;
 }
 
-.panel-heading.active .panel-title>a{
-  color:#fff;
+.panel-heading.active, .panel-heading:hover{
+  .panel-title>a{
+    color:#fff;
+  }
 }
 
 a.accordion-toggle  i{
@@ -890,7 +901,7 @@ a.accordion-toggle  i{
 .nav-tabs>li.active>a:focus {
   border: 0;
   color:#fff;
-  background: #1f1f20;
+  background: @blue;
   position: relative;
 }
 
@@ -900,7 +911,7 @@ a.accordion-toggle  i{
   width: auto;
   height: auto;
   border-style:solid;
-  border-color: transparent transparent transparent #1f1f20;
+  border-color: transparent transparent transparent @blue;
   border-width: 25px 22px;
   right: -44px;
   top:0;
@@ -1524,7 +1535,7 @@ ul.social_icons li  a i{
 }
 
 .footer {
-  background: none repeat scroll 0 0 #2E2E2E;
+  background: none repeat scroll 0 0 @blue;
   border-top: 5px solid #C52D2F;
   height: 84px;
   margin-top: 110px;
@@ -2508,7 +2519,7 @@ shortcodes page css
   padding-top: 30px;
   padding-bottom: 30px;
   color: #fff;
-  background: #2e2e2e;
+  background: @blue;
 }
 
 #footer a {

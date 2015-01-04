@@ -11417,6 +11417,9 @@ a:focus {
 body > section {
   padding: 70px 0;
 }
+section h2 {
+  color: #c52d2f;
+}
 .center {
   text-align: center;
   padding-bottom: 55px;
@@ -11465,13 +11468,15 @@ body > section {
 **************************/
 #header .search {
   display: inline-block;
+  background-color: #fff;
+  color: #c52d2f;
 }
 .navbar > .container .navbar-brand {
   margin-left: 0;
 }
 .top-bar {
   padding: 10px 0;
-  background: #191919;
+  background: #354cef;
   border-bottom: 1px solid #222;
   line-height: 28px;
 }
@@ -11508,14 +11513,15 @@ ul.social-share li a:hover {
   color: #fff;
 }
 .search i {
-  color: #fff;
+  color: #c52d2f;
+  padding-right: 5px;
 }
 input.search-form {
   background: transparent;
   border: 0 none;
   width: 60px;
   padding: 0 10px;
-  color: #FFF;
+  color: #c52d2f;
   -webkit-transition: all 400ms;
   -moz-transition: all 400ms;
   -ms-transition: all 400ms;
@@ -11538,7 +11544,7 @@ input.search-form:hover {
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
-  background: #151515;
+  background: #354cef;
   padding: 15px 0;
   padding-bottom: 0;
 }
@@ -11866,7 +11872,7 @@ input.search-form:hover {
   opacity: 1;
 }
 #services {
-  background: #000000 url(../images/services/bg_services.png);
+  background: #354cef url(../images/services/bg_services.png);
   background-size: cover;
 }
 #services .lead,
@@ -12001,10 +12007,13 @@ input.search-form:hover {
 .accordion-inner h4 {
   margin-top: 0;
 }
-.panel-heading.active {
-  background: #1f1f20;
+.panel-heading.active,
+.panel-heading:hover {
+  background: #354cef;
+  cursor: pointer;
 }
-.panel-heading.active .panel-title > a {
+.panel-heading.active .panel-title > a,
+.panel-heading:hover .panel-title > a {
   color: #fff;
 }
 a.accordion-toggle i {
@@ -12056,7 +12065,7 @@ a.accordion-toggle i {
 .nav-tabs > li.active > a:focus {
   border: 0;
   color: #fff;
-  background: #1f1f20;
+  background: #354cef;
   position: relative;
 }
 .nav-tabs > li.active > a:after {
@@ -12065,7 +12074,7 @@ a.accordion-toggle i {
   width: auto;
   height: auto;
   border-style: solid;
-  border-color: transparent transparent transparent #1f1f20;
+  border-color: transparent transparent transparent #354cef;
   border-width: 25px 22px;
   right: -44px;
   top: 0;
@@ -12619,7 +12628,7 @@ ul.social_icons li a i {
   font-style: oblique;
 }
 .footer {
-  background: none repeat scroll 0 0 #2E2E2E;
+  background: none repeat scroll 0 0 #354cef;
   border-top: 5px solid #C52D2F;
   height: 84px;
   margin-top: 110px;
@@ -13427,7 +13436,7 @@ shortcodes page css
   padding-top: 30px;
   padding-bottom: 30px;
   color: #fff;
-  background: #2e2e2e;
+  background: #354cef;
 }
 #footer a {
   color: #fff;
