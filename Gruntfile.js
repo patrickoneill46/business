@@ -41,6 +41,13 @@ module.exports = function(grunt) {
           relative: true
         }
       }
+    },
+    concatinclude: {
+      dist: {
+        files: {
+          'dist/built.js': ['js/include.inc']
+        }
+      }
     }
   });
 
@@ -51,6 +58,7 @@ module.exports = function(grunt) {
   // grunt.registerTask('default', ['uglify']);
   grunt.registerTask('default', [
     'less',
+    'concatinclude:dist',
     'htmlbuild',
     'watch'
   ]);
