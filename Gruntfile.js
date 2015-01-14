@@ -17,8 +17,8 @@ module.exports = function(grunt) {
     // }
     watch: {
       html: {
-        files: ['*.html'],
-        tasks: ['htmlbuild']
+        files: ['{,*/}*.html'],
+        tasks: ['htmlbuild:dist']
       },
       less: {
         files: ['less/*.less'],
@@ -48,10 +48,19 @@ module.exports = function(grunt) {
           },
           sections: {
             layout: {
+              head: 'partials/head.html',
               header: 'partials/header.html',
-              footer: 'partials/footer.html'
+              footer: 'partials/footer.html',
+              meta: 'partials/meta.html'
             },
             head: 'partials/head.html'
+          },
+          data: {
+            homepageTitle: 'Default Title',
+            meta: {
+              description: "O'Neill IT1",
+              author: "Patrick O'Neill"
+            }
           }
         }
       }
