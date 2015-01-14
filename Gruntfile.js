@@ -34,7 +34,14 @@ module.exports = function(grunt) {
     },
     includes: {
       files: {
-        src: ['partials/index.html'],
+        src: [
+          'partials/*.html',
+          // 'partials/about-us.html',
+          // 'partials/index.html',
+          // 'partials/portfolio.html',
+          // 'partials/pricing.html',
+          // 'partials/services.html',
+        ],
         dest: '.',
         flatten: true,
         cwd: '.'
@@ -42,7 +49,8 @@ module.exports = function(grunt) {
     },
     htmlbuild:{
       dist: {
-        src: 'index.html',
+        src: ['./*.html'],
+        // src: ['404.html', 'about-us.html', 'index.html', 'portfolio.html', 'pricing.html', 'services.html'],
         dest: 'dist/',
         options: {
           beautify: true,
