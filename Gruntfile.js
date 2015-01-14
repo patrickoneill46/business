@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     watch: {
       html: {
         files: ['{,*/}*.html'],
-        tasks: ['htmlbuild:dist']
+        tasks: ['includes','htmlbuild:dist']
       },
       less: {
         files: ['less/*.less'],
@@ -31,6 +31,14 @@ module.exports = function(grunt) {
           "css/index.css": "less/index.less"
         }
       }
+    },
+    includes: {
+      files: {
+        src: ['partials/index.html'],
+        dest: '.',
+        flatten: true,
+        cwd: '.'
+      },
     },
     htmlbuild:{
       dist: {
@@ -82,6 +90,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'less',
     'concatinclude:dist',
+    'includes',
     'htmlbuild',
     'watch'
   ]);
