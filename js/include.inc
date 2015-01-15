@@ -14,3 +14,4 @@
 
 --my source files
 @require main.js
+@require header.js

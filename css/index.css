@@ -11321,6 +11321,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
 }
+.card img {
+  display: block;
+  max-height: 200px;
+  width: auto;
+  margin: auto;
+}
 /*************************
 *******Typography******
 **************************/
@@ -11339,10 +11345,6 @@ h6 {
   font-weight: 600;
   font-family: 'Open Sans', sans-serif;
   color: #4e4e4e;
-}
-h1 {
-  font-size: 36px;
-  color: #fff;
 }
 h2 {
   font-size: 20px;
@@ -11637,7 +11639,8 @@ input.search-form:hover {
 #main-slider .carousel .slide-margin {
   margin-top: 140px;
 }
-#main-slider .carousel h2 {
+#main-slider .carousel h2,
+#main-slider .carousel h1 {
   color: #fff;
 }
 #main-slider .carousel .btn-slide {
@@ -13681,3 +13684,8 @@ shortcodes page css
   }
 }
 /* XS Portrait */
+@media (max-width: 991px) {
+  .center-text-sm {
+    text-align: center;
+  }
+}

@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     // }
     watch: {
       html: {
-        files: ['{,*/}*.html'],
+        files: ['partials/{,*/}*.html'],
         tasks: ['includes','htmlbuild:dist']
       },
       less: {
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
         dest: 'dist/',
         options: {
           beautify: true,
-          relative: true,
+          // relative: true,
           scripts: {
             bundle: ['js/*.js', '!js/jquery.js'],
             jquery: ['js/jquery.js']
