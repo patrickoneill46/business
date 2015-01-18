@@ -22,8 +22,8 @@ module.exports = function(grunt) {
       },
       less: {
         files: ['less/*.less'],
-        tasks: ['less', 'htmlbuild']
-      }
+        tasks: ['less', 'htmlbuild', 'copy:css']
+      },
     },
     less: {
       development: {
@@ -47,6 +47,24 @@ module.exports = function(grunt) {
         cwd: '.'
       },
     },
+    copy: {
+      css: {
+        src: 'css/index.css',
+        dest: 'dist/css/index.css'
+      },
+      js : {
+        src: 'js/*.js',
+        dest: 'dist/'
+      },
+      fonts: {
+        src: 'fonts/*',
+        dest: 'dist/'
+      },
+      images: {
+        src: 'images/*',
+        dest: 'dist/'
+      }
+    },
     htmlbuild:{
       dist: {
         src: ['./*.html'],
@@ -54,7 +72,7 @@ module.exports = function(grunt) {
         dest: 'dist/',
         options: {
           beautify: true,
-          // relative: true,
+          relative: false,
           scripts: {
             bundle: ['js/*.js', '!js/jquery.js'],
             jquery: ['js/jquery.js']
@@ -100,6 +118,7 @@ module.exports = function(grunt) {
     'concatinclude:dist',
     'includes',
     'htmlbuild',
+    'copy',
     'watch'
   ]);
 
