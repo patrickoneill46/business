@@ -22,7 +22,7 @@ module.exports = function(grunt) {
       },
       less: {
         files: ['less/*.less'],
-        tasks: ['less', 'htmlbuild', 'copy:css']
+        tasks: ['less', 'copy:css']
       },
     },
     less: {
