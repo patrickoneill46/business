@@ -47,6 +47,9 @@ module.exports = function(grunt) {
         cwd: '.'
       },
     },
+    clean: {
+      dist: ['dist/{,*/}*.{html,css,js}'],
+    },
     copy: {
       css: {
         src: 'css/index.css',
@@ -114,6 +117,7 @@ module.exports = function(grunt) {
   // Default task(s).
   // grunt.registerTask('default', ['uglify']);
   grunt.registerTask('default', [
+    'clean:dist',
     'less',
     'concatinclude:dist',
     'includes',
