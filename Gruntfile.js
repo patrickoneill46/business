@@ -32,6 +32,20 @@ module.exports = function(grunt) {
         }
       }
     },
+    uncss : {
+      prod: {
+        files: {
+          'prod/css/index.css': ['dist/*.html']
+        }
+      }
+    },
+    cssmin: {
+      prod: {
+        files: {
+          'prod/css/index.min.css': ['prod/css/index.css']
+        }
+      }
+    },
     includes: {
       files: {
         src: [
