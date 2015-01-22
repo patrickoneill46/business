@@ -35,26 +35,21 @@ module.exports = function(grunt) {
     uncss : {
       prod: {
         files: {
-          'prod/css/index.css': ['dist/*.html']
+          'tmp/css/index.css': ['prod/*.html']
         }
       }
     },
     cssmin: {
       prod: {
         files: {
-          'prod/css/index.min.css': ['prod/css/index.css']
-        }
+          'prod/css/index.min.css': ['tmp/css/index.css']
+        },
       }
     },
     includes: {
       files: {
         src: [
           'partials/*.html',
-          // 'partials/about-us.html',
-          // 'partials/index.html',
-          // 'partials/portfolio.html',
-          // 'partials/pricing.html',
-          // 'partials/services.html',
         ],
         dest: '.',
         flatten: true,
@@ -63,35 +58,51 @@ module.exports = function(grunt) {
     },
     clean: {
       dist: ['dist/{,*/}*.{html,css,js}'],
+      prod: ['prod/{,*/}*.{html,css,js}'],
     },
     copy: {
       css: {
         src: 'css/index.css',
         dest: 'dist/css/index.css'
       },
-      js : {
-        src: 'js/*.js',
-        dest: 'dist/'
+      // js : {
+      //   src: 'js/*.js',
+      //   dest: 'dist/'
+      // },
+      // fonts: {
+      //   src: 'fonts/*',
+      //   dest: 'dist/'
+      // },
+      // images: {
+      //   src: 'images/*',
+      //   dest: 'dist/'
+      // },
+      dist: {
+        files: [
+          { src: 'css/index.css', dest: 'dist/css/index.css'},
+          { src: 'images/{,*/,**/}*', dest: 'dist/'},
+          { src: 'fonts/*', dest: 'dist/'},
+          { src: 'js/jquery.js', dest: 'dist/js/jquery.js'}
+        ]
       },
-      fonts: {
-        src: 'fonts/*',
-        dest: 'dist/'
-      },
-      images: {
-        src: 'images/*',
-        dest: 'dist/'
+      prod: {
+        files: [
+          { src: 'css/index.css', dest: 'prod/css/index.css'},
+          { src: 'images/{,*/,**/}*', dest: 'prod/'},
+          { src: 'fonts/*', dest: 'prod/'},
+          { src: 'js/jquery.js', dest: 'prod/js/jquery.js'}
+        ]
       }
     },
     htmlbuild:{
       dist: {
         src: ['./*.html'],
-        // src: ['404.html', 'about-us.html', 'index.html', 'portfolio.html', 'pricing.html', 'services.html'],
         dest: 'dist/',
         options: {
           beautify: true,
           relative: false,
           scripts: {
-            bundle: ['js/*.js', '!js/jquery.js'],
+            bundle: ['js/built.js'],
             jquery: ['js/jquery.js']
           },
           styles: {
@@ -114,30 +125,72 @@ module.exports = function(grunt) {
             }
           }
         }
+      },
+      prod: {
+        src: ['*.html'],
+        dest: 'prod/',
+        options: {
+          beautify: true,
+          relative: false,
+          scripts: {
+            bundle: ['js/built.js'],
+            jquery: ['js/jquery.js']
+          },
+          styles: {
+            bundle: 'css/index.css'
+          },
+          data: {
+            homepageTitle: 'Default Title',
+            meta: {
+              description: "O'Neill IT",
+              author: "Patrick O'Neill"
+            }
+          }
+        }
       }
     },
     concatinclude: {
       dist: {
         files: {
-          'dist/built.js': ['js/include.inc']
+          'dist/js/built.js': ['js/include.inc']
+        }
+      },
+      prod: {
+        files: {
+          'prod/js/built.js': ['js/include.inc']
+        }
+      }
+    },
+    uglify: {
+      prod: {
+        files: {
+          'prod/js/built.min.js': ['prod/js/built.js']
         }
       }
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
-  // grunt.loadNpmTasks('grunt-contrib-uglify');
-
   // Default task(s).
-  // grunt.registerTask('default', ['uglify']);
   grunt.registerTask('default', [
     'clean:dist',
     'less',
     'concatinclude:dist',
     'includes',
-    'htmlbuild',
-    'copy',
+    'copy:dist',
+    'htmlbuild:dist',
     'watch'
+  ]);
+
+  grunt.registerTask('production', [
+    'clean:prod',
+    'includes',
+    'htmlbuild:prod',
+    'concatinclude:prod',
+    'uglify:prod',
+    'less',
+    'copy:prod',
+    'uncss:prod',
+    'cssmin:prod',
   ]);
 
 };
