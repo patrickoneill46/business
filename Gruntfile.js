@@ -29,6 +29,10 @@ module.exports = function(grunt) {
       development: {
         files: {
           "css/index.css": "less/index.less"
+        },
+        options: {
+          sourceMap: true,
+          sourceMapURL: 'index.css.map'
         }
       }
     },
@@ -62,8 +66,16 @@ module.exports = function(grunt) {
     },
     copy: {
       css: {
-        src: 'css/index.css',
-        dest: 'dist/css/index.css'
+        files: [
+          {
+            src: 'css/index.css',
+            dest: 'dist/css/index.css'
+          },
+          {
+            src: 'css/index.css.map',
+            dest: 'dist/css/index.css.map'
+          }
+        ]
       },
       // js : {
       //   src: 'js/*.js',
@@ -80,6 +92,7 @@ module.exports = function(grunt) {
       dist: {
         files: [
           { src: 'css/index.css', dest: 'dist/css/index.css'},
+          { src: 'css/index.css.map', dest: 'dist/css/index.css.map'},
           { src: 'images/{,*/,**/}*', dest: 'dist/'},
           { src: 'fonts/*', dest: 'dist/'},
           { src: 'js/jquery.js', dest: 'dist/js/jquery.js'}
