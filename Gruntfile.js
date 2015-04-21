@@ -115,7 +115,7 @@ module.exports = function(grunt) {
           beautify: true,
           relative: false,
           scripts: {
-            bundle: ['js/built.js'],
+            built: ['js/built.js'],
             jquery: ['js/jquery.js']
           },
           styles: {
@@ -131,9 +131,23 @@ module.exports = function(grunt) {
             head: 'partials/head.html'
           },
           data: {
-            homepageTitle: 'Default Title',
+            homepageTitle: "O'Neill IT - IT Consulting, Hardware and Software Sales, IT Training",
+            title: {
+              homepage: "O'Neill IT",
+              aboutUs: "About Us",
+              contactUs: 'Contact Us',
+              fourOhFour: '404',
+              philips: "O'Neill IT - Philips Digital Dictation",
+              portfolio: "O'Neill IT - Portfolio",
+              services: "O'Neill IT - Services",
+              pricing: 'Pricing',
+              services: 'Services'
+            },
             meta: {
-              description: "O'Neill IT1",
+              description: "O'Neill IT Sales Training Consulting Maintenance",
+              phillips: 'Phillips Digital Dictation Solutions Mobile Dictation Desktop Dictation',
+              cisco: 'Cisco Security Networking Firewalls CCNA CCNV CCNP',
+              consulting: 'Healthcare Security Legacy Systems',
               author: "Patrick O'Neill"
             }
           }

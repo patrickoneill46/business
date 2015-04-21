@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-include "components/head.html"
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- build:process -->
+    <meta name="description" content="<%= meta.description %>">
+    <meta name="author" content="<%= meta.author%>">
+    <title><%= title.homepage %></title>
+    <!-- /build -->
+    include "components/headscriptsandlinks.html"
+</head>
 <body class="homepage">
 
     include "components/header.html"
@@ -23,7 +32,7 @@ include "components/head.html"
     <script src="js/jquery.js"></script>
     <!-- /build -->
 
-    <!-- build:script bundle -->
+    <!-- build:script built -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
