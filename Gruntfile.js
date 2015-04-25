@@ -95,7 +95,8 @@ module.exports = function(grunt) {
           { src: 'css/index.css.map', dest: 'dist/css/index.css.map'},
           { src: 'images/{,*/,**/}*', dest: 'dist/'},
           { src: 'fonts/*', dest: 'dist/'},
-          { src: 'js/jquery.js', dest: 'dist/js/jquery.js'}
+          { src: 'js/jquery.js', dest: 'dist/js/jquery.js'},
+          { src: 'js/built.js', dest: 'dist/js/built.js'},
         ]
       },
       prod: {
@@ -179,7 +180,7 @@ module.exports = function(grunt) {
     concatinclude: {
       dist: {
         files: {
-          'dist/js/built.js': ['js/include.inc']
+          'js/built.js': ['js/include.inc']
         }
       },
       prod: {
